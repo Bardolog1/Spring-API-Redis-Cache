@@ -1321,3 +1321,225 @@ Caused by: java.net.ConnectException: Connection refused
 2022-12-11 12:54:58.158 DEBUG 29363 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select trackentit0_.track_id as track_id1_2_, trackentit0_.album_id as album_id4_2_, trackentit0_.lycris as lycris2_2_, trackentit0_.name as name3_2_ from track_entity trackentit0_
 2022-12-11 12:54:58.159 DEBUG 29363 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select albumentit0_.album_id as album_id1_0_0_, albumentit0_.autor as autor2_0_0_, albumentit0_.name as name3_0_0_, albumentit0_.price as price4_0_0_, albumentit0_.record_company_tittle as record_c5_0_0_, recordcomp1_.tittle as tittle1_1_1_ from album_entity albumentit0_ left outer join record_company_entity recordcomp1_ on albumentit0_.record_company_tittle=recordcomp1_.tittle where albumentit0_.album_id=?
 2022-12-11 12:54:58.159 TRACE 29363 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2024-04-16 15:37:52.890  INFO 33480 --- [main] c.B.CourseAopAndAnnotationsApplication   : Starting CourseAopAndAnnotationsApplication using Java 21.0.2 on CO-L300515 with PID 33480 (C:\Users\libardo.lozanogambas\Desktop\spring-api\target\classes started by libardo.lozanogambas in C:\Users\libardo.lozanogambas\Desktop\spring-api)
+2024-04-16 15:37:52.893  INFO 33480 --- [main] c.B.CourseAopAndAnnotationsApplication   : No active profile set, falling back to default profiles: default
+2024-04-16 15:37:53.401  INFO 33480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-16 15:37:53.632  INFO 33480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 225 ms. Found 3 JPA repository interfaces.
+2024-04-16 15:37:54.144  INFO 33480 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-04-16 15:37:54.152  INFO 33480 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-16 15:37:54.153  INFO 33480 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2024-04-16 15:37:54.239  INFO 33480 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-16 15:37:54.239  INFO 33480 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1302 ms
+2024-04-16 15:37:54.286  INFO 33480 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-16 15:37:54.423  INFO 33480 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-16 15:37:54.427  INFO 33480 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:aop'
+2024-04-16 15:37:54.661  INFO 33480 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-16 15:37:54.720  INFO 33480 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
+2024-04-16 15:37:54.835  INFO 33480 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-16 15:37:54.960  INFO 33480 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-04-16 15:37:55.392 DEBUG 33480 --- [main] org.hibernate.SQL                        : drop table if exists album_entity CASCADE 
+2024-04-16 15:37:55.392 DEBUG 33480 --- [main] org.hibernate.SQL                        : drop table if exists record_company_entity CASCADE 
+2024-04-16 15:37:55.393 DEBUG 33480 --- [main] org.hibernate.SQL                        : drop table if exists track_entity CASCADE 
+2024-04-16 15:37:55.393 DEBUG 33480 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2024-04-16 15:37:55.394 DEBUG 33480 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2024-04-16 15:37:55.395 DEBUG 33480 --- [main] org.hibernate.SQL                        : create table album_entity (album_id bigint not null, autor varchar(255), name varchar(255), price double, record_company_tittle varchar(255), primary key (album_id))
+2024-04-16 15:37:55.398 DEBUG 33480 --- [main] org.hibernate.SQL                        : create table record_company_entity (tittle varchar(255) not null, primary key (tittle))
+2024-04-16 15:37:55.400 DEBUG 33480 --- [main] org.hibernate.SQL                        : create table track_entity (track_id bigint not null, lycris varchar(255), name varchar(255), album_id bigint, primary key (track_id))
+2024-04-16 15:37:55.401 DEBUG 33480 --- [main] org.hibernate.SQL                        : alter table album_entity add constraint FKe7q7mg7959a78n69j2lqb75na foreign key (record_company_tittle) references record_company_entity
+2024-04-16 15:37:55.404 DEBUG 33480 --- [main] org.hibernate.SQL                        : alter table track_entity add constraint FK7ss6y6jget2qco3u8nkv9cqy4 foreign key (album_id) references album_entity
+2024-04-16 15:37:55.407  INFO 33480 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-16 15:37:55.411  INFO 33480 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-16 15:37:55.806  INFO 33480 --- [main] org.redisson.Version                     : Redisson 3.18.1
+2024-04-16 15:37:56.040  WARN 33480 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [com/Bardolog/config/DBCacheConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 127.0.0.1/127.0.0.1:6379
+2024-04-16 15:37:56.041  INFO 33480 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-16 15:37:56.041  INFO 33480 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2024-04-16 15:37:56.042 DEBUG 33480 --- [main] org.hibernate.SQL                        : drop table if exists album_entity CASCADE 
+2024-04-16 15:37:56.046 DEBUG 33480 --- [main] org.hibernate.SQL                        : drop table if exists record_company_entity CASCADE 
+2024-04-16 15:37:56.047 DEBUG 33480 --- [main] org.hibernate.SQL                        : drop table if exists track_entity CASCADE 
+2024-04-16 15:37:56.047 DEBUG 33480 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2024-04-16 15:37:56.048  INFO 33480 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-16 15:37:56.050  INFO 33480 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-16 15:37:56.051  INFO 33480 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-04-16 15:37:56.057  INFO 33480 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-04-16 15:37:56.079 ERROR 33480 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [com/Bardolog/config/DBCacheConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 127.0.0.1/127.0.0.1:6379
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.5.jar:5.3.5]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.5.jar:5.3.5]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.4.jar:2.4.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:769) ~[spring-boot-2.4.4.jar:2.4.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) ~[spring-boot-2.4.4.jar:2.4.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.4.jar:2.4.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.4.jar:2.4.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1313) ~[spring-boot-2.4.4.jar:2.4.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-2.4.4.jar:2.4.4]
+	at com.Bardolog.CourseAopAndAnnotationsApplication.main(CourseAopAndAnnotationsApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 127.0.0.1/127.0.0.1:6379
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.5.jar:5.3.5]
+	... 20 common frames omitted
+Caused by: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 127.0.0.1/127.0.0.1:6379
+	at org.redisson.connection.pool.ConnectionPool.lambda$createConnection$0(ConnectionPool.java:154) ~[redisson-3.18.1.jar:3.18.1]
+	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[na:na]
+	at org.redisson.connection.pool.ConnectionPool.promiseFailure(ConnectionPool.java:318) ~[redisson-3.18.1.jar:3.18.1]
+	at org.redisson.connection.pool.ConnectionPool.lambda$createConnection$6(ConnectionPool.java:277) ~[redisson-3.18.1.jar:3.18.1]
+	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[na:na]
+	at org.redisson.client.RedisClient$1$2.run(RedisClient.java:250) ~[redisson-3.18.1.jar:3.18.1]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:500) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: java.util.concurrent.CompletionException: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: 127.0.0.1/127.0.0.1:6379
+	at java.base/java.util.concurrent.CompletableFuture.encodeRelay(CompletableFuture.java:368) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeRelay(CompletableFuture.java:377) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$UniRelay.tryFire(CompletableFuture.java:1097) ~[na:na]
+	... 10 common frames omitted
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: 127.0.0.1/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:707) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-04-16 15:42:24.891  INFO 32528 --- [main] c.B.CourseAopAndAnnotationsApplication   : Starting CourseAopAndAnnotationsApplication using Java 21.0.2 on CO-L300515 with PID 32528 (C:\Users\libardo.lozanogambas\Desktop\spring-api\target\classes started by libardo.lozanogambas in C:\Users\libardo.lozanogambas\Desktop\spring-api)
+2024-04-16 15:42:24.893  INFO 32528 --- [main] c.B.CourseAopAndAnnotationsApplication   : No active profile set, falling back to default profiles: default
+2024-04-16 15:42:25.374  INFO 32528 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-16 15:42:25.612  INFO 32528 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 230 ms. Found 3 JPA repository interfaces.
+2024-04-16 15:42:26.133  INFO 32528 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-04-16 15:42:26.141  INFO 32528 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-16 15:42:26.141  INFO 32528 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2024-04-16 15:42:26.227  INFO 32528 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-16 15:42:26.227  INFO 32528 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1292 ms
+2024-04-16 15:42:26.273  INFO 32528 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-16 15:42:26.398  INFO 32528 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-16 15:42:26.402  INFO 32528 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:aop'
+2024-04-16 15:42:26.638  INFO 32528 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-16 15:42:26.711  INFO 32528 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
+2024-04-16 15:42:26.831  INFO 32528 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-16 15:42:26.933  INFO 32528 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-04-16 15:42:27.341 DEBUG 32528 --- [main] org.hibernate.SQL                        : drop table if exists album_entity CASCADE 
+2024-04-16 15:42:27.342 DEBUG 32528 --- [main] org.hibernate.SQL                        : drop table if exists record_company_entity CASCADE 
+2024-04-16 15:42:27.342 DEBUG 32528 --- [main] org.hibernate.SQL                        : drop table if exists track_entity CASCADE 
+2024-04-16 15:42:27.342 DEBUG 32528 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2024-04-16 15:42:27.344 DEBUG 32528 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2024-04-16 15:42:27.345 DEBUG 32528 --- [main] org.hibernate.SQL                        : create table album_entity (album_id bigint not null, autor varchar(255), name varchar(255), price double, record_company_tittle varchar(255), primary key (album_id))
+2024-04-16 15:42:27.348 DEBUG 32528 --- [main] org.hibernate.SQL                        : create table record_company_entity (tittle varchar(255) not null, primary key (tittle))
+2024-04-16 15:42:27.350 DEBUG 32528 --- [main] org.hibernate.SQL                        : create table track_entity (track_id bigint not null, lycris varchar(255), name varchar(255), album_id bigint, primary key (track_id))
+2024-04-16 15:42:27.351 DEBUG 32528 --- [main] org.hibernate.SQL                        : alter table album_entity add constraint FKe7q7mg7959a78n69j2lqb75na foreign key (record_company_tittle) references record_company_entity
+2024-04-16 15:42:27.356 DEBUG 32528 --- [main] org.hibernate.SQL                        : alter table track_entity add constraint FK7ss6y6jget2qco3u8nkv9cqy4 foreign key (album_id) references album_entity
+2024-04-16 15:42:27.359  INFO 32528 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-16 15:42:27.365  INFO 32528 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-16 15:42:27.795  INFO 32528 --- [main] org.redisson.Version                     : Redisson 3.18.1
+2024-04-16 15:42:28.044  WARN 32528 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [com/Bardolog/config/DBCacheConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 127.0.0.1/127.0.0.1:6379
+2024-04-16 15:42:28.045  INFO 32528 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-16 15:42:28.045  INFO 32528 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2024-04-16 15:42:28.046 DEBUG 32528 --- [main] org.hibernate.SQL                        : drop table if exists album_entity CASCADE 
+2024-04-16 15:42:28.053 DEBUG 32528 --- [main] org.hibernate.SQL                        : drop table if exists record_company_entity CASCADE 
+2024-04-16 15:42:28.054 DEBUG 32528 --- [main] org.hibernate.SQL                        : drop table if exists track_entity CASCADE 
+2024-04-16 15:42:28.054 DEBUG 32528 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2024-04-16 15:42:28.056  INFO 32528 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-16 15:42:28.061  INFO 32528 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-16 15:42:28.063  INFO 32528 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-04-16 15:42:28.069  INFO 32528 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-04-16 15:42:28.082 ERROR 32528 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [com/Bardolog/config/DBCacheConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 127.0.0.1/127.0.0.1:6379
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.5.jar:5.3.5]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.5.jar:5.3.5]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.4.jar:2.4.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:769) ~[spring-boot-2.4.4.jar:2.4.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) ~[spring-boot-2.4.4.jar:2.4.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.4.jar:2.4.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.4.jar:2.4.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1313) ~[spring-boot-2.4.4.jar:2.4.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-2.4.4.jar:2.4.4]
+	at com.Bardolog.CourseAopAndAnnotationsApplication.main(CourseAopAndAnnotationsApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 127.0.0.1/127.0.0.1:6379
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.5.jar:5.3.5]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.5.jar:5.3.5]
+	... 20 common frames omitted
+Caused by: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 127.0.0.1/127.0.0.1:6379
+	at org.redisson.connection.pool.ConnectionPool.lambda$createConnection$0(ConnectionPool.java:154) ~[redisson-3.18.1.jar:3.18.1]
+	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[na:na]
+	at org.redisson.connection.pool.ConnectionPool.promiseFailure(ConnectionPool.java:318) ~[redisson-3.18.1.jar:3.18.1]
+	at org.redisson.connection.pool.ConnectionPool.lambda$createConnection$6(ConnectionPool.java:277) ~[redisson-3.18.1.jar:3.18.1]
+	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194) ~[na:na]
+	at org.redisson.client.RedisClient$1$2.run(RedisClient.java:250) ~[redisson-3.18.1.jar:3.18.1]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:500) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: java.util.concurrent.CompletionException: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: 127.0.0.1/127.0.0.1:6379
+	at java.base/java.util.concurrent.CompletableFuture.encodeRelay(CompletableFuture.java:368) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeRelay(CompletableFuture.java:377) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$UniRelay.tryFire(CompletableFuture.java:1097) ~[na:na]
+	... 10 common frames omitted
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: 127.0.0.1/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:707) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+

@@ -1,6 +1,6 @@
-package com.debuggeando_ideas.repository;
+package com.Bardolog.repository;
 
-import com.debuggeando_ideas.entity.RecordCompanyEntity;
+import com.Bardolog.entity.RecordCompanyEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface RecordCompanyRepository extends CrudRepository<RecordCompanyEntity, String>{

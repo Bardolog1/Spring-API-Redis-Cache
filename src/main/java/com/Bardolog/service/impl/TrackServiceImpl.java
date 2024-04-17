@@ -1,9 +1,9 @@
-package com.debuggeando_ideas.service.impl;
+package com.Bardolog.service.impl;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import com.debuggeando_ideas.config.DBCacheConfig;
+import com.Bardolog.config.DBCacheConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CacheEvict;
@@ -11,9 +11,9 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.debuggeando_ideas.entity.TrackEntity;
-import com.debuggeando_ideas.repository.TrackRepository;
-import com.debuggeando_ideas.service.ITrackService;
+import com.Bardolog.entity.TrackEntity;
+import com.Bardolog.repository.TrackRepository;
+import com.Bardolog.service.ITrackService;
 
 @Service
 @Transactional

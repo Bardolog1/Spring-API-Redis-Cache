@@ -1,4 +1,4 @@
-package com.debuggeando_ideas.model;
+package com.Bardolog.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

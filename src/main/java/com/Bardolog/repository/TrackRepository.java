@@ -1,6 +1,6 @@
-package com.debuggeando_ideas.repository;
+package com.Bardolog.repository;
 
-import com.debuggeando_ideas.entity.TrackEntity;
+import com.Bardolog.entity.TrackEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface TrackRepository extends CrudRepository<TrackEntity, Long>{

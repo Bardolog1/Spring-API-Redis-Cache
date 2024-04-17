@@ -1,4 +1,4 @@
-package com.debuggeando_ideas.service.common;
+package com.Bardolog.service.common;
 
 import java.io.Serializable;
 import java.util.Set;

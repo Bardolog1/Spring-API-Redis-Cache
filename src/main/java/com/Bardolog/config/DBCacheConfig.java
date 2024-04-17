@@ -1,4 +1,4 @@
-package com.debuggeando_ideas.config;
+package com.Bardolog.config;
 
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;

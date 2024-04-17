@@ -1,4 +1,5 @@
-package com.debuggeando_ideas.entity;
+package com.Bardolog.entity;
+
 
 import java.io.Serializable;
 import java.util.HashSet;

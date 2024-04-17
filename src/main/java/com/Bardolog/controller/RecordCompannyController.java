@@ -1,11 +1,11 @@
-package com.debuggeando_ideas.controller;
+package com.Bardolog.controller;
 
 import java.time.LocalDateTime;
 import java.util.Set;
 
-import com.debuggeando_ideas.entity.RecordCompanyEntity;
-import com.debuggeando_ideas.model.ResponseModel;
-import com.debuggeando_ideas.service.IRecordCompanyService;
+import com.Bardolog.entity.RecordCompanyEntity;
+import com.Bardolog.model.ResponseModel;
+import com.Bardolog.service.IRecordCompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
